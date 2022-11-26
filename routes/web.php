@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified', 'role:super-admin', 'role:admin'])->name('dashboard');
+})->middleware(['auth', 'verified', 'role:super-admin|admin|user|writer'])->name('dashboard');
 
 Route::get('/admin', function () {
     return view('admin.index');
