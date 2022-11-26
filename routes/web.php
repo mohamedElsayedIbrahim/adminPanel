@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,14 +24,18 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified', 'role:super-admin|admin|user|writer'])->name('dashboard');
 
-Route::get('/admin', function () {
-    return view('admin.index');
-})->middleware(['auth', 'role:super-admin'])->name('admin.index');
 
-Route::middleware('auth')->group(function () {
+
+Route::middleware('auth','role:super-admin|admin|user|writer')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware('auth','role:super-admin|admin|user|writer')->name("admin.")->prefix("admin")->group(function () {
+    Route::resource("/roles",RoleController::class);
+    Route::resource("/permissions",PermissionController::class);
+
 });
 
 require __DIR__.'/auth.php';
