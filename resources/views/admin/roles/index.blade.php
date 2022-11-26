@@ -41,9 +41,9 @@
                                                 </td>
 
                                                 <td>
-                                                    <a href="" class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-1 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+                                                    <a href="#" class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-1 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
                                                     >Delete</a>
-                                                    <a href="" class="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-1 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline"
+                                                    <a href="{{ route('admin.roles.edit', $role->id) }}" class="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-1 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline"
                                                     >Edit</a>
                                                 </td>
                                                 
