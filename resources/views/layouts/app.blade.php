@@ -12,13 +12,21 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
+
+        
     </head>
     <body class="font-sans antialiased flex">
         <div class="'min-h-screen bg-gray-100"> 
             @include('layouts.navigation')
         </div>
+
         
-        <main class="flex w-full bg-slate-50">
+
+        <main class="flex flex-col w-full bg-slate-50">
+            @include('layouts.banner')    
+
             {{$slot}}
         </main>
 

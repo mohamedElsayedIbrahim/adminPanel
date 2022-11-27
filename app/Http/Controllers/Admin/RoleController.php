@@ -28,7 +28,31 @@ class RoleController extends Controller
 
         Role::create(["name"=>$request->role]);
 
-        return redirect(route('admin.roles.index'));
+        return redirect(route('admin.roles.index'))->with('message','Your data has been created!');;
         
+    }
+
+    public function edit($id)
+    {
+        $role = Role::findOrFail($id);
+
+        return view('admin.roles.edit', compact('role'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $role = Role::findOrFail($id);
+        $request->validate([
+            'role'=>'required|string|min:3|max:50'
+        ]);
+        $role->update(['name'=>$request->role]);
+        return redirect(route('admin.roles.index'))->with('message','Your data has been updated!');
+    }
+
+    public function destroy ($id)
+    {
+        $role = Role::findOrFail($id);
+        $role->delete();
+        return redirect(route('admin.permissions.index'))->with('message','Your data has been deleted!');;
     }
 }
