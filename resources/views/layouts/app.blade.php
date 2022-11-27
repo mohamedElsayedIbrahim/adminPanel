@@ -23,12 +23,15 @@
         </div>
 
         
-
-        <main class="flex flex-col w-full bg-slate-50">
-            @include('layouts.banner')    
-
+        <main class="flex flex-col justify-between w-full bg-slate-50">
+            @include('layouts.banner')
+             
             {{$slot}}
+
+            @include('layouts.footer') 
         </main>
+
+        
 
     </body>
 </html>
