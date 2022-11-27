@@ -41,14 +41,15 @@
                                                 </td>
 
                                                 <td class="flex align-item-center">
-                                                    <form action="{{ route('admin.roles.destroy', $roles->id) }}" onclick="confirm('Are you sure');" method="post">
+                                                    <form action="{{ route('admin.roles.destroy', $role->id) }}" onclick="confirm('Are you sure');" method="post">
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit" class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-1 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
                                                         >Delete</button>
                                                     </form>
                                                     
-
+                                                    <a href="{{ route('admin.roles.edit', $role->id) }}" class="border border-yellow-500 bg-yellow-500 text-white rounded-md px-4 py-1 m-2 transition duration-500 ease select-none hover:bg-yellow-600 focus:outline-none focus:shadow-outline"
+                                                        >Edit</a>
                                                     
 
                                                 </td>
